@@ -10,15 +10,6 @@ public class IslandManagerEditor : Editor {
 
 		EditorGUILayout.Space(10);
 
-		GUI.backgroundColor = new Color(0.6f, 1f, 0.6f); // Green
-		if (GUILayout.Button("Generate New Island", GUILayout.Height(40))) {
-			EditorApplication.delayCall += () => {
-				manager.GenerateNewIsland();
-			};
-		}
-
-		EditorGUILayout.Space(5);
-
 		if (manager.transform.childCount > 0) {
 			GUI.backgroundColor = new Color(1f, 0.6f, 0.6f); // Red
 			if (GUILayout.Button("Delete Generated Island")) {
