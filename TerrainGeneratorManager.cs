@@ -1,4 +1,3 @@
-csharp
 using UnityEngine; // Correctly placed inside the global scope
 
 public class TerrainGeneratorManager : MonoBehaviour // Class definition
