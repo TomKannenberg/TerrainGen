@@ -1,21 +1,22 @@
 csharp
-using UnityEngine;
+using UnityEngine; // Correctly placed inside the global scope
 
-public class TerrainGeneratorManager : MonoBehaviour
+public class TerrainGeneratorManager : MonoBehaviour // Class definition
 {
     [Tooltip("The settings asset that defines the island to be generated.")]
-    public GeneratorSettings settings;
+    public GeneratorSettings settings; // Field
     [Tooltip("The IslandManager component in the scene.")]
-    public IslandManager islandManager;
+    public IslandManager islandManager; // Field
 
-    public void GenerateTerrain()
+    public void GenerateTerrain() // Method
     {
         if (settings == null)
         {
             Debug.LogError("Assign a GeneratorSettings asset to the TerrainGeneratorManager before generating.");
             return;
         }
-        if (islandManager == null) {
+        if (islandManager == null)
+        {
             Debug.LogError("Assign the IslandManager component to the TerrainGeneratorManager before generating.");
             return;
         }
