@@ -5,12 +5,10 @@ using UnityEditor;
 #endif
 
 public class IslandManager : MonoBehaviour {
-	[Tooltip("The settings asset that defines the island to be generated.")]
-	public GeneratorSettings settings;
 
-	public void GenerateNewIsland() {
+	public void GenerateNewIsland(GeneratorSettings settings) {
 		if (settings == null) {
-			Debug.LogError("Assign a GeneratorSettings asset to the IslandManager before generating.");
+			Debug.LogError("GeneratorSettings asset is null. Cannot generate island.");
 			return;
 		}
 
@@ -22,7 +20,7 @@ public class IslandManager : MonoBehaviour {
 		Terrain terrain = islandObject.AddComponent<Terrain>();
 		terrain.terrainData = new TerrainData();
 
-		IslandGenerator generator = new IslandGenerator(settings);
+		IslandGenerator generator = new IslandGenerator(settings); // Use the passed-in settings
 		ConfigureTerrainData(terrain.terrainData, settings);
 
 		islandObject.name = $"Island (Seed: {generator.GetSeed()})";
